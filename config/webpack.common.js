@@ -1,18 +1,14 @@
-const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-const devMode = 'production' !== process.env.NODE_ENV
+const { entry, output, relative, ENTRY_PATH, ROOT_PATH } = require('./base')
 
 module.exports = {
+  context: ROOT_PATH,
 
-  // context: path.resolve(__dirname, '..'),
   // entry不是必须
-  entry: {
-    login: path.resolve(__dirname, '../src/login/index'),
-    test: path.resolve(__dirname, '../src/index')
-  },
-  output: { filename: devMode ? 'js/[name].[hash:8].js' : 'js/[name].[chunkhash:8].js' },
+  entry,
+  output,
 
   // 仅在发生错误或新编译时输出
   // stats: 'minimal',
@@ -30,18 +26,18 @@ module.exports = {
             options: { fix: true }
           }
         ],
-        include: path.resolve(__dirname, './src/**/*.js'),
+        include: ENTRY_PATH,
         exclude: /node_modules/
       },
       {
         test: /\.(jsx?)|(tsx?)$/,
-        include: path.resolve(__dirname, '../src/'),
+        include: ENTRY_PATH,
         exclude: /node_modules/,
         use: ['babel-loader']
       },
       {
         test: /\.html$/,
-        include: path.resolve(__dirname, '../src/'),
+        include: ENTRY_PATH,
         use: [
           {
             loader: 'html-loader',
@@ -51,12 +47,12 @@ module.exports = {
       },
       {
         test: /\.(c|le)ss$/,
-        include: path.resolve(__dirname, '../src/'),
+        include: ENTRY_PATH,
         use: ['style-loader', 'css-loader', 'less-loader']
       },
       {
         test: /\.(png|jpg|gif|svg)/,
-        include: path.resolve(__dirname, '../src/'),
+        include: ENTRY_PATH,
         use: [
           {
 
@@ -82,7 +78,7 @@ module.exports = {
     }),
 
     // 清除dist
-    new CleanWebpackPlugin(['dist'], { root: path.resolve(__dirname, '../') })
+    new CleanWebpackPlugin(['dist'], { root: ROOT_PATH })
 
     // new MiniCssExtractPlugin({
     //   filename: "[name].css",
@@ -90,14 +86,14 @@ module.exports = {
     // }),
   ],
   resolve: {
-    modules: ['node_modules', '../src/'],
+    modules: ['node_modules', ENTRY_PATH],
 
     // 配合tree-shaking，优先使用es6模块化入口（import）
     mainFields: ['jsnext:main', 'browser', 'main'],
     alias: {
 
       // '@': path.resolve(__dirname, '../src/'),
-      Images: path.resolve(__dirname, '../src/assets/images/')
+      Images: relative('../src/assets/images/')
     },
     extensions: ['.js', '.json', '.jsx', '.ts', '.tsx']
   }

@@ -72,7 +72,7 @@ module.exports = {
     // error; 禁止在循环中出现 await
     'no-await-in-loop': 2,
     // error; 不允许使用console进行代码调试
-    'no-console': 2,
+    'no-console': 1,
     // error; 不允许使用debugger进行代码调试
     'no-debugger': 2,
 
@@ -228,8 +228,8 @@ module.exports = {
     'brace-style': [1, '1tbs'],
     // error; 变量命名需要以驼峰命名法，对属性字段不做限制
     camelcase: [2, { properties: 'never' }],
-    // error; 对象字面量项尾不能有逗号
-    'comma-dangle': [2, 'never'],
+    // // error; 对象字面量项尾不能有逗号
+    // 'comma-dangle': [2, 'always'],
     // error; 逗号风格，换行时在行首还是行尾
     'comma-style': [2, 'last'],
     // // error; 当获取当前执行环境的上下文时，强制使用一致的命名

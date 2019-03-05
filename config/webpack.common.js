@@ -1,14 +1,19 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-const { entry, output, relative, ENTRY_PATH, ROOT_PATH } = require('./base')
+const { presets, plugins } = require('./base.js')
+
+const devMode = 'production' !== process.env.NODE_ENV
 
 module.exports = {
   context: ROOT_PATH,
 
   // entry不是必须
-  entry,
-  output,
+  entry: {
+    login: path.resolve(__dirname, '../src/login/index'),
+    test: path.resolve(__dirname, '../src/index'),
+  },
+  output: { filename: devMode ? 'js/[name].[hash:8].js' : 'js/[name].[chunkhash:8].js' },
 
   // 仅在发生错误或新编译时输出
   // stats: 'minimal',
@@ -23,17 +28,26 @@ module.exports = {
         use: [
           {
             loader: 'eslint-loader',
-            options: { fix: true }
-          }
+            options: { fix: true },
+          },
         ],
-        include: ENTRY_PATH,
-        exclude: /node_modules/
+        include: path.resolve(__dirname, './src/**/*'),
+        exclude: /node_modules/,
       },
       {
         test: /\.(jsx?)|(tsx?)$/,
         include: ENTRY_PATH,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets,
+              plugins,
+              babelrc: false,
+            },
+          },
+        ],
       },
       {
         test: /\.html$/,
@@ -41,14 +55,14 @@ module.exports = {
         use: [
           {
             loader: 'html-loader',
-            options: { minimize: true }
-          }
-        ]
+            options: { minimize: true },
+          },
+        ],
       },
       {
         test: /\.(c|le)ss$/,
-        include: ENTRY_PATH,
-        use: ['style-loader', 'css-loader', 'less-loader']
+        include: path.resolve(__dirname, '../src/'),
+        use: ['style-loader', 'css-loader', 'less-loader'],
       },
       {
         test: /\.(png|jpg|gif|svg)/,
@@ -58,27 +72,27 @@ module.exports = {
 
             // 小图片转为DataURL
             loader: 'url-loader',
-            options: { limit: 8192 }
-          }
-        ]
-      }
+            options: { limit: 8192 },
+          },
+        ],
+      },
 
       // {
       //   test: /.(eot|ttf|woff|woff2)$/,
       //   use: 'url-loader'
       // },
-    ]
+    ],
   },
   plugins: [
 
     // 打包html
     new HtmlWebPackPlugin({
       template: './src/index.html',
-      filename: './index.html'
+      filename: './index.html',
     }),
 
     // 清除dist
-    new CleanWebpackPlugin(['dist'], { root: ROOT_PATH })
+    new CleanWebpackPlugin(['dist'], { root: path.resolve(__dirname, '../') }),
 
     // new MiniCssExtractPlugin({
     //   filename: "[name].css",
@@ -93,8 +107,8 @@ module.exports = {
     alias: {
 
       // '@': path.resolve(__dirname, '../src/'),
-      Images: relative('../src/assets/images/')
+      Images: path.resolve(__dirname, '../src/assets/images/'),
     },
-    extensions: ['.js', '.json', '.jsx', '.ts', '.tsx']
-  }
+    extensions: ['.js', '.json', '.jsx', '.ts', '.tsx'],
+  },
 }

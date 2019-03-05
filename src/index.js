@@ -1,9 +1,4 @@
-import _ from 'lodash';
-const b = 'sss'
-let a = () => {
-  console.log(b)
-}
-a()
-console.log(
-  _.join(['Another', 'module', 'loaded!'], ' ')
-); 
+const a = new Map()
+
+a.set('a', 1)
+console.log(a.get('a'))

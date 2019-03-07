@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-// import _ from 'lodash'
-
 import './index.less'
 
 export default () => {

@@ -2,7 +2,7 @@ const path = require('path')
 
 const rules = require('./rules')
 const plugins = require('./plugins')
-const { ENTRY_PATH, ENTRY, ROOT_PATH, OUTPUT } = require('./config')
+const { ENTRY, ROOT_PATH, OUTPUT } = require('./config')
 
 module.exports = {
   context: ROOT_PATH,
@@ -19,7 +19,7 @@ module.exports = {
   },
   plugins,
   resolve: {
-    modules: ['node_modules', ENTRY_PATH],
+    modules: ['node_modules', '../src/'],
 
     // 配合tree-shaking，优先使用es6模块化入口（import）
     mainFields: ['jsnext:main', 'browser', 'main'],

@@ -1,6 +1,7 @@
 const { presets, plugins } = require('./base.js')
 
 const { ENTRY_PATH } = require('./config')
+const path = require('path')
 
 const common = {
   include: ENTRY_PATH,
@@ -11,13 +12,14 @@ const rules = [
   {
     test: /\.(jsx?|tsx?)$/,
     enforce: 'pre',
+    include: path.resolve(__dirname, './src'),
+    exclude: /node_modules/,
     use: [
       {
         loader: 'eslint-loader',
         options: { fix: true },
       },
     ],
-    ...common,
   },
   {
     test: /\.(jsx?)|(tsx?)$/,

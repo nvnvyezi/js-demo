@@ -19,7 +19,7 @@ module.exports = {
   },
   plugins,
   resolve: {
-    modules: ['node_modules', '../src/'],
+    modules: ['../src/', 'node_modules'],
 
     // 配合tree-shaking，优先使用es6模块化入口（import）
     mainFields: ['jsnext:main', 'browser', 'main'],
@@ -28,6 +28,6 @@ module.exports = {
       // '@': path.resolve(__dirname, '../src/'),
       Images: path.resolve(__dirname, '../src/assets/images/'),
     },
-    extensions: ['.js', '.json', '.jsx', '.ts', '.tsx'],
+    extensions: ['.tsx', '.ts', '.js', '.json', '.jsx'],
   },
 }

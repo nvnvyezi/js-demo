@@ -26,7 +26,7 @@ const rules = [
     ...common,
     use: [
       {
-        loader: 'babel-loader',
+        loader: 'babel-loader?cacheDirectory',
         options: {
           presets,
           plugins,

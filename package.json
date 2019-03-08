@@ -9,7 +9,8 @@
     "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
     "tsc": "tsc --noEmit --skipLibCheck",
     "build": "NODE_ENV=production webpack --display-modules  --progress --colors --profile --display-error-details --config ./config/webpack.prod.js",
-    "start": "NODE_ENV=development webpack-dev-server --display-modules  --progress --colors --display-error-details --profile --config ./config/webpack.dev.js"
+    "start": "NODE_ENV=development webpack-dev-server --display-modules  --progress --colors --display-error-details --profile --config ./config/webpack.dev.js",
+    "dll": "NODE_ENV=production webpack --config config/webpack.dll.js --mode production"
   },
   "author": "",
   "license": "ISC",

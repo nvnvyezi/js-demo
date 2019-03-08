@@ -1,10 +1,6 @@
-const webpack = require('webpack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const WorkboxPlugin = require('workbox-webpack-plugin')
 const HappyPack = require('happypack')
-
-const { ROOT_PATH } = require('./config')
 
 // const { presets, plugins: plugin } = require('./base.js')
 
@@ -15,10 +11,9 @@ const plugins = [
     title: '这是一个基础架子',
     template: './src/index.html',
     filename: './index.html',
+    minify: { collapseWhitespace: true },
+    hash: true, // 为了更好的 cache，可以在文件名后加个 hash。
   }),
-
-  // 清除dist
-  new CleanWebpackPlugin(['dist/page'], { root: ROOT_PATH }),
 
   // 这些选项帮助快速启用 ServiceWorkers
   // 不允许遗留任何“旧的” ServiceWorkers
@@ -27,10 +22,6 @@ const plugins = [
     skipWaiting: true,
   }),
 
-  new webpack.DllReferencePlugin({
-    context: __dirname,
-    manifest: require('../dist/dll/vendor/main-manifest.json'),
-  }),
   new HappyPack({
     id: 'css',
     loaders: ['style-loader', 'css-loader', 'less-loader'],

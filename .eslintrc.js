@@ -190,6 +190,7 @@ module.exports = {
     yoda: [1, 'always'],
     // 需要约束 for-in
     'guard-for-in': 2,
+    'no-unexpected-multiline': 0,
 
     /*
      * ------------------------------------------------

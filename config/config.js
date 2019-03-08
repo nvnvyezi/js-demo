@@ -9,6 +9,8 @@ module.exports = {
   OUTPUT_PATH: path.resolve(__dirname, '../dist/page'),
   DLL_OUTPUT_PATH: path.resolve(__dirname, '../dist/dll'),
   DLL_PATH: path.join(__dirname, '../dist/dll', 'vendor/[name]-manifest.json'),
+  CLEAN_PATH: 'dist/page',
+  DLL_CLEAN_PATH: 'dist/dll',
   CPU_NUM: os.cpus().length - 1,
   ENTRY: {
     login: path.resolve(__dirname, '../src/login/index'),
@@ -16,6 +18,6 @@ module.exports = {
   },
   OUTPUT: {
     filename: devMode ? 'js/[name].[hash:8].js' : 'js/[name].[chunkhash:8].js',
-    publicPath: './',
+    publicPath: devMode ? '/' : './',
   },
 }

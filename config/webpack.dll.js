@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-const { DLL_OUTPUT_PATH, DLL_PATH, ROOT_PATH } = require('./config')
+const { DLL_OUTPUT_PATH, DLL_PATH, ROOT_PATH, DLL_CLEAN_PATH } = require('./config')
 
 module.exports = {
   entry: ['react', 'react-dom'],
@@ -12,7 +12,7 @@ module.exports = {
     library: '[name]_[hash]', // DLL的名字
   },
   plugins: [
-    new CleanWebpackPlugin(['dist/dll'], { root: ROOT_PATH }),
+    new CleanWebpackPlugin([DLL_CLEAN_PATH], { root: ROOT_PATH }),
     new webpack.DllPlugin({
       context: __dirname,
       name: '[name]_[hash]',

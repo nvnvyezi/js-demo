@@ -2,8 +2,11 @@ const webpack = require('webpack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const WorkboxPlugin = require('workbox-webpack-plugin')
+const HappyPack = require('happypack')
 
 const { ROOT_PATH } = require('./config')
+
+// const { presets, plugins: plugin } = require('./base.js')
 
 const plugins = [
 
@@ -27,6 +30,10 @@ const plugins = [
   new webpack.DllReferencePlugin({
     context: __dirname,
     manifest: require('../dist/dll/vendor/main-manifest.json'),
+  }),
+  new HappyPack({
+    id: 'css',
+    loaders: ['style-loader', 'css-loader', 'less-loader'],
   }),
 ]
 

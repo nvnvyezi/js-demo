@@ -1,7 +1,6 @@
-const { presets, plugins } = require('./base.js')
+const path = require('path')
 
 const { ENTRY_PATH } = require('./config')
-const path = require('path')
 
 const common = {
   include: ENTRY_PATH,
@@ -27,11 +26,7 @@ const rules = [
     use: [
       {
         loader: 'babel-loader?cacheDirectory',
-        options: {
-          presets,
-          plugins,
-          babelrc: false,
-        },
+        options: require('./base'),
       },
     ],
   },
@@ -48,7 +43,7 @@ const rules = [
   {
     test: /\.(c|le)ss$/,
     ...common,
-    use: ['style-loader', 'css-loader', 'less-loader'],
+    use: 'happypack/loader?id=css',
   },
   {
     test: /\.(png|jpg|gif|svg)/,

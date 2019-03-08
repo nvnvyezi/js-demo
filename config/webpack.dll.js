@@ -8,6 +8,7 @@ module.exports = {
   output: {
     filename: 'MYDll.[name].js',
     path: DLL_OUTPUT_PATH,
+    libraryTarget: 'this',
     library: '[name]_[hash]', // DLL的名字
   },
   plugins: [

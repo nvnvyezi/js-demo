@@ -1,4 +1,5 @@
 const path = require('path')
+const os = require('os')
 
 const devMode = 'production' !== process.env.NODE_ENV
 
@@ -8,6 +9,7 @@ module.exports = {
   OUTPUT_PATH: path.resolve(__dirname, '../dist/page'),
   DLL_OUTPUT_PATH: path.resolve(__dirname, '../dist/dll'),
   DLL_PATH: path.join(__dirname, '../dist/dll', 'vendor/[name]-manifest.json'),
+  CPU_NUM: os.cpus().length - 1,
   ENTRY: {
     login: path.resolve(__dirname, '../src/login/index'),
     test: path.resolve(__dirname, '../src/index'),

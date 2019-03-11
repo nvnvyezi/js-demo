@@ -11,10 +11,12 @@ module.exports = {
   DLL_PATH: path.join(__dirname, '../dist/dll', 'vendor/[name]-manifest.json'),
   CLEAN_PATH: 'dist/page',
   DLL_CLEAN_PATH: 'dist/dll',
+  FAVICON_PATH: path.resolve(__dirname, './favicon.ico'),
   CPU_NUM: os.cpus().length - 1,
   ENTRY: {
-    login: path.resolve(__dirname, '../src/login/index'),
-    test: path.resolve(__dirname, '../src/index'),
+    login: path.resolve(__dirname, '../src/index'),
+
+    // test: path.resolve(__dirname, '../src/index'),
   },
   OUTPUT: {
     filename: devMode ? 'js/[name].[hash:8].js' : 'js/[name].[chunkhash:8].js',

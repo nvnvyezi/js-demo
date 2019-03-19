@@ -2,17 +2,12 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const WorkboxPlugin = require('workbox-webpack-plugin')
 const HappyPack = require('happypack')
 
-const { FAVICON_PATH } = require('./config')
-
-// const { presets, plugins: plugin } = require('./base.js')
-
 const plugins = [
 
   // 打包html
   new HtmlWebPackPlugin({
     title: '这是一个基础架子',
-    favicon: FAVICON_PATH,
-    template: './src/index.html',
+    template: './public/index.html',
     filename: './index.html',
     minify: { collapseWhitespace: true },
     hash: true, // 为了更好的 cache，可以在文件名后加个 hash。

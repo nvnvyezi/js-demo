@@ -5,9 +5,7 @@ import './index.less'
 export default () => {
   return (
     <div className="test">
-      <img
-        alt=""
-        className="aaa"
+      <img alt=""
         src="http://p0.pstatp.com/origin/3796/2975850990"
       />
       <style jsx>

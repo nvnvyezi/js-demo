@@ -1,4 +1,5 @@
 # init-webpack
+**目前实现ts, eslint, prettier, styled-jsx, less, pre-commit**
 webpack基本配置，可以基于此进行拓展
 
 ##### 使用

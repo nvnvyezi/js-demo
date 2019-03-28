@@ -5,34 +5,52 @@ import './index.less'
 export default () => {
   return (
     <div className="test">
-      <img alt=""
-        src="http://p0.pstatp.com/origin/3796/2975850990"
-      />
+      <div
+        style={{
+          width: '30px',
+          backgroundColor: 'red',
+          height: '100vh',
+        }}
+      >
+        left
+      </div>
+      <div className="middle">
+        <div className="top">top</div>
+        <div className="middle2">middle</div>
+        <div className="bottom">bottom</div>
+      </div>
+      <div
+        style={{
+          width: '30px',
+          backgroundColor: 'red',
+          height: '100vh',
+        }}
+      >
+        right
+      </div>
       <style jsx>
         {`
           .test {
-            position: relative;
-            width: 36px;
-            height: 36px;
+            display: flex;
+            flex-direction;
+            justify-content: space-between;
+            height: '100vh',
           }
-          .aaa::before {
-            content: ' ';
-            position: absolute;
-            // box-sizing: border-box;
-            top: -1px;
-            left: -1px;
-            width: 200%;
-            height: 200%;
-            border: 1px solid red;
-            transform-origin: 0 0;
-            border-radius: 100%;
-            transform: scale(0.5, 0.5);
-            pointer-events: none;
+          .middle {
+            flex-grow: 1;
+            align-self: flex-end;
           }
-          img {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
+          .bottom {
+            margin-bottom: 40px;
+            border: 1px solid green;
+          }
+          .middle2 {
+            margin-bottom: 40px;
+            border: 1px solid yellow;
+          }
+          .top {
+            margin-bottom: 100px;
+            border: 1px solid blue;
           }
         `}
       </style>

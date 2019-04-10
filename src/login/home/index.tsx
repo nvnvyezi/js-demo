@@ -1,59 +1,28 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 
 import './index.less'
 
 export default () => {
+  console.log(2222)
+  const [a, setA] = useState(0)
+  const [b, setB] = useState(0)
+  const [c, setC] = useState(0)
+
   return (
     <div className="test">
-      <div
-        style={{
-          width: '30px',
-          backgroundColor: 'red',
-          height: '100vh',
+      {a}
+      {b}
+      {c}
+      <button
+        onClick={() => {
+          setA(1)
+          setB(2)
+          setC(1)
         }}
       >
-        left
-      </div>
-      <div className="middle">
-        <div className="top">top</div>
-        <div className="middle2">middle</div>
-        <div className="bottom">bottom</div>
-      </div>
-      <div
-        style={{
-          width: '30px',
-          backgroundColor: 'red',
-          height: '100vh',
-        }}
-      >
-        right
-      </div>
-      <style jsx>
-        {`
-          .test {
-            display: flex;
-            flex-direction;
-            justify-content: space-between;
-            height: '100vh',
-          }
-          .middle {
-            flex-grow: 1;
-            align-self: flex-end;
-          }
-          .bottom {
-            margin-bottom: 40px;
-            border: 1px solid green;
-          }
-          .middle2 {
-            margin-bottom: 40px;
-            border: 1px solid yellow;
-          }
-          .top {
-            margin-bottom: 100px;
-            border: 1px solid blue;
-          }
-        `}
-      </style>
+        a
+      </button>
+      <style jsx>{``}</style>
     </div>
   )
 }

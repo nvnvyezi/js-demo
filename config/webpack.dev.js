@@ -19,7 +19,7 @@ module.exports = merge(base, {
     // proxy: xxx                                       //接口代理配置
     // 和friendly-errors-webpack-plugin配合,但webpack自身的错误或警告在控制台不可见。
     quiet: true,
-    clientLogLevel: 'none' // 阻止打印那种搞乱七八糟的控制台信息
+    clientLogLevel: 'none', // 阻止打印那种搞乱七八糟的控制台信息
     // historyApiFallback: true,//开发单页应用时有用，依赖于HTML5 history API，设为true时所有跳转将指向index.html
   },
   module: {
@@ -77,7 +77,7 @@ module.exports = merge(base, {
       //     }
       //   ]
       // }
-    ]
+    ],
   },
   plugins: [
 
@@ -91,7 +91,7 @@ module.exports = merge(base, {
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
         messages: ['You application is running here http://localhost:7241'],
-        notes: ['Some additionnal notes to be displayed unpon successful compilation']
+        notes: ['Some additionnal notes to be displayed unpon successful compilation'],
       },
 
       // 是否应在每次编译之间清除控制台
@@ -104,7 +104,7 @@ module.exports = merge(base, {
 
       // 添加格式化程序和转换器（见下文）
       additionalFormatters: [],
-      additionalTransformers: []
-    })
-  ]
+      additionalTransformers: [],
+    }),
+  ],
 })

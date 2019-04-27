@@ -1,7 +1,6 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin')
-
-// const WorkboxPlugin = require('workbox-webpack-plugin')
 const HappyPack = require('happypack')
+const HtmlWebPackPlugin = require('html-webpack-plugin')
+// const WorkboxPlugin = require('workbox-webpack-plugin')
 
 const plugins = [
   new HtmlWebPackPlugin({
@@ -30,7 +29,12 @@ const plugins = [
         options: {
           exec: true,
           parser: 'sugarss',
-          plugins: { 'postcss-preset-env': { browsers: 'last 2 versions', autoprefixer: { grid: true } }, },
+          plugins: {
+            'postcss-preset-env': {
+              browsers: 'last 2 versions',
+              autoprefixer: { grid: true },
+            },
+          },
         },
       },
     ],

@@ -4,16 +4,12 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const HappyPack = require('happypack')
 
 const plugins = [
-
-  // 打包html
   new HtmlWebPackPlugin({
-
-    // title: '这是一个基础架子',
     template: './public/index.html',
     filename: './index.html',
-
-    // minify: { collapseWhitespace: true },
-    hash: true, // 为了更好的 cache，可以在文件名后加个 hash。
+    inject: true,
+    minify: { collapseWhitespace: true },
+    hash: true,
   }),
 
   // 这些选项帮助快速启用 ServiceWorkers
@@ -25,7 +21,19 @@ const plugins = [
 
   new HappyPack({
     id: 'css',
-    loaders: ['style-loader', 'css-loader', 'less-loader'],
+    loaders: [
+      'style-loader',
+      'css-loader',
+      'less-loader',
+      {
+        loader: 'postcss-loader',
+        options: {
+          exec: true,
+          parser: 'sugarss',
+          plugins: { 'postcss-preset-env': { browsers: 'last 2 versions', autoprefixer: { grid: true } }, },
+        },
+      },
+    ],
   }),
 ]
 

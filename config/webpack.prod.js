@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
 
 const { OUTPUT_PATH, ROOT_PATH, CLEAN_PATH } = require('./config.js')
 
@@ -33,6 +34,20 @@ module.exports = merge(common, {
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require('../dist/dll/vendor/main-manifest.json'),
+    }),
+    new ParallelUglifyPlugin({
+      uglifyJS: {
+        output: {
+          beautify: false,
+          comments: false,
+        },
+        compress: {
+          warnings: false,
+          drop_console: true,
+          collapse_vars: false,
+          reduce_vars: false,
+        },
+      },
     }),
   ],
 })

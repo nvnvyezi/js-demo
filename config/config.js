@@ -1,5 +1,4 @@
 const path = require('path')
-const os = require('os')
 
 const devMode = 'production' !== process.env.NODE_ENV
 
@@ -12,12 +11,7 @@ module.exports = {
   CLEAN_PATH: 'dist/page',
   DLL_CLEAN_PATH: 'dist/dll',
   FAVICON_PATH: path.resolve(__dirname, './favicon.ico'),
-  CPU_NUM: os.cpus().length - 1,
-  ENTRY: {
-    login: path.resolve(__dirname, '../src/index'),
-
-    // test: path.resolve(__dirname, '../src/index'),
-  },
+  ENTRY: { index: path.resolve(__dirname, '../src/index') },
   OUTPUT: {
     filename: devMode ? 'js/[name].[hash:8].js' : 'js/[name].[chunkhash:8].js',
     publicPath: devMode ? '/' : './',

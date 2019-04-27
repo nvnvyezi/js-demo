@@ -1,6 +1,11 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import App from './login/home/index'
+
+class App extends React.Component {
+  render() {
+    return <div>ss</div>
+  }
+}
 
 ReactDom.render(<App />, document.getElementById('app'))
 

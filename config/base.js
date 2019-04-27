@@ -1,7 +1,7 @@
 // 需要保持@babel/env是第一个元素
 // babel.legacy中通过 presets[0][1]修改target
 const presets = [
-  ['@babel/preset-react'],
+  ['@babel/preset-react', { development: true }],
   ['@babel/preset-typescript'],
   [
     '@babel/env',
@@ -39,7 +39,10 @@ const presets = [
 
 const plugins = [
   '@babel/plugin-syntax-dynamic-import',
-  '@babel/plugin-proposal-class-properties',
+  [
+    '@babel/plugin-proposal-class-properties',
+    { loose: true, },
+  ],
   '@babel/plugin-proposal-optional-chaining',
   '@babel/plugin-proposal-object-rest-spread',
   '@babel/plugin-proposal-export-default-from',

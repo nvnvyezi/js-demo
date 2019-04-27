@@ -50,7 +50,6 @@ module.exports = {
     'react/no-did-mount-set-state': 0, //防止在componentDidMount中使用setState
     'react/no-did-update-set-state': 1, //防止在componentDidUpdate中使用setState
     'react/no-direct-mutation-state': 2, //防止this.state的直接变异
-    'react/no-multi-comp': 2, //防止每个文件有多个组件定义
     'react/no-set-state': 1, //防止使用setState
     'react/no-unknown-property': 2, //防止使用未知的DOM属性
     'react/prefer-es6-class': 2, //为React组件强制执行ES5或ES6类
@@ -74,7 +73,7 @@ module.exports = {
     // error; 不允许使用console进行代码调试
     'no-console': 1,
     // error; 不允许使用debugger进行代码调试
-    'no-debugger': 2,
+    'no-debugger': 1,
 
     /*
      * ------------------------------------------------
@@ -242,7 +241,10 @@ module.exports = {
     // error; 一个缩进必须用2个空格替代, switch语句里面的case 2个空格
     indent: [2, 2, { SwitchCase: 2 }],
     // error; 对象字面量中冒号前面禁止有空格，后面必须有空格
-    'key-spacing': [2, { beforeColon: false, afterColon: true, mode: 'strict' }],
+    'key-spacing': [
+      2,
+      { beforeColon: false, afterColon: true, mode: 'strict' },
+    ],
     // error; 关键字前后必须要加上空格
     'keyword-spacing': [2, { before: true, after: true }],
     // off; 不限制注释位置
@@ -250,7 +252,10 @@ module.exports = {
     // error; 换行符
     // 'linebreak-style': [2, 'windows'],
     // warn; 注释前有一空行
-    'lines-around-comment': [1, { beforeBlockComment: true, beforeLineComment: true }],
+    'lines-around-comment': [
+      1,
+      { beforeBlockComment: true, beforeLineComment: true },
+    ],
     // error; 强制可嵌套的块的最大深度
     'max-depth': [2, { max: 4 }],
     // warn; 单行最多允许160个字符, 对包含url的行不进行此限制
@@ -355,9 +360,16 @@ module.exports = {
     // warn; 推荐使用箭头函数作为回调
     'prefer-arrow-callback': [1, { allowNamedFunctions: true }],
     // error; 使用const
-    'prefer-const': [2, { destructuring: 'any', ignoreReadBeforeAssign: false }],
+    'prefer-const': [
+      2,
+      { destructuring: 'any', ignoreReadBeforeAssign: false },
+    ],
     // warn; 推荐结构赋值
-    'prefer-destructuring': [1, { array: true, object: true }, { enforceForRenamedProperties: false }],
+    'prefer-destructuring': [
+      1,
+      { array: true, object: true },
+      { enforceForRenamedProperties: false },
+    ],
     // warn; 推荐rest运算符
     'prefer-rest-params': 1,
     // warn; 推荐扩展运算符

@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const HappyPack = require('happypack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
+
 // const WorkboxPlugin = require('workbox-webpack-plugin')
 
 const plugins = [

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const rules = require('./rules')
 const plugins = require('./plugins')
 const resolve = require('./resolve')
@@ -12,7 +13,6 @@ module.exports = {
   // 仅在发生错误或新编译时输出
   // stats: 'minimal',
   module: {
-
     // 不依赖其他库的库，不需要解析他们
     // noParse: //,
     rules,

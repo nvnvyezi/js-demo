@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
@@ -8,7 +9,6 @@ module.exports = merge(base, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-
     // contentBase: path.resolve(__dirname, '../dist'),    //服务路径，存在于缓存中
     compress: true, // 一切服务都启用gzip 压缩
     // host: 'localhost',                                  // 默认是localhost
@@ -23,7 +23,6 @@ module.exports = merge(base, {
     // historyApiFallback: true,//开发单页应用时有用，依赖于HTML5 history API，设为true时所有跳转将指向index.html
   },
   plugins: [
-
     // webpack内置的热更新插件
     new webpack.HotModuleReplacementPlugin(),
 
@@ -34,13 +33,14 @@ module.exports = merge(base, {
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
         messages: ['You application is running here http://localhost:7241'],
-        notes: ['Some additionnal notes to be displayed unpon successful compilation'],
+        notes: [
+          'Some additionnal notes to be displayed unpon successful compilation',
+        ],
       },
 
       // 是否应在每次编译之间清除控制台
       clearConsole: true,
       onErrors: function(severity, errors) {
-
         // You can listen to errors transformed and prioritized by the plugin
         // severity can be 'error' or 'warning'
       },

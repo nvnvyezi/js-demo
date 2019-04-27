@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 
 const { ENTRY_PATH } = require('./config')
@@ -50,7 +51,6 @@ const rules = [
     ...common,
     use: [
       {
-
         // 小图片转为DataURL
         loader: 'url-loader',
         options: { limit: 8192 },

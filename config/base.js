@@ -6,7 +6,6 @@ const presets = [
   [
     '@babel/env',
     {
-
       // 将使用的目标浏览器/插件和在 数据插件版本 中指定的版本用 console.log 输出。
       debug: true,
 
@@ -19,7 +18,6 @@ const presets = [
       // 启用更符合规范的转换，但速度会更慢，默认为 false
       spec: false,
       targets: {
-
         // 如果你的目标浏览器支持 es modules 特性，browsers 选项则会失效
         esmodules: true,
 
@@ -39,10 +37,7 @@ const presets = [
 
 const plugins = [
   '@babel/plugin-syntax-dynamic-import',
-  [
-    '@babel/plugin-proposal-class-properties',
-    { loose: true, },
-  ],
+  ['@babel/plugin-proposal-class-properties', { loose: true }],
   '@babel/plugin-proposal-optional-chaining',
   '@babel/plugin-proposal-object-rest-spread',
   '@babel/plugin-proposal-export-default-from',

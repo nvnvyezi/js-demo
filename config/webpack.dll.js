@@ -1,7 +1,13 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-const { DLL_OUTPUT_PATH, DLL_PATH, ROOT_PATH, DLL_CLEAN_PATH } = require('./config')
+const {
+  DLL_OUTPUT_PATH,
+  DLL_PATH,
+  ROOT_PATH,
+  DLL_CLEAN_PATH,
+} = require('./config')
 
 module.exports = {
   entry: ['react', 'react-dom'],

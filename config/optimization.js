@@ -9,11 +9,9 @@ function recursiveIssuer(m) {
 }
 
 const optimization = {
-
   // 分离webpack运行时的引导代码
   runtimeChunk: 'single',
   splitChunks: {
-
     // 'all'|'async'|'initial'(全部|按需加载|初始加载)的chunks
     chunks: 'all',
 
@@ -22,7 +20,6 @@ const optimization = {
     // 最大初始化请求书，默认1
     // maxInitialRequests: 1,
     cacheGroups: {
-
       // 分离第三方库
       vendor: {
         test: /[\\/]node_modules[\\/]/,
@@ -35,13 +32,15 @@ const optimization = {
       },
       indexStyles: {
         name: 'index',
-        test: (m, c, entry = 'index') => 'CssModule' === m.constructor.name && recursiveIssuer(m) === entry,
+        test: (m, c, entry = 'index') =>
+          'CssModule' === m.constructor.name && recursiveIssuer(m) === entry,
         chunks: 'all',
         enforce: true,
       },
       otherStyles: {
         name: 'another',
-        test: (m, c, entry = 'another') => 'CssModule' === m.constructor.name && recursiveIssuer(m) === entry,
+        test: (m, c, entry = 'another') =>
+          'CssModule' === m.constructor.name && recursiveIssuer(m) === entry,
         chunks: 'all',
         enforce: true,
       },

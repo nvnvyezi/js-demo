@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
@@ -22,11 +24,9 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-
     // 清除dist
     new CleanWebpackPlugin([CLEAN_PATH], { root: ROOT_PATH }),
     new MiniCssExtractPlugin({
-
       // css内容不变不重复构建
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css',

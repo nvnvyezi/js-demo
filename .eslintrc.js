@@ -1,10 +1,11 @@
 module.exports = {
-  extends: ['eslint-config-alloy/typescript-react'],
+  extends: ['plugin:react/recommended', 'plugin:@typescript-eslint/recommended', 'prettier/@typescript-eslint', 'plugin:prettier/recommended'],
   env: { browser: true, commonjs: true, es6: true, node: true, worker: true },
   // 这里填入你的项目需要的全局变量
   globals: {
     // 这里值为 false 表示这个全局变量不允许被重新赋值，比如：
   },
+  parser: '@typescript-eslint/parser',
   plugins: ['react-hooks'],
   parserOptions: {
     ecmaVersion: 7,
@@ -241,10 +242,7 @@ module.exports = {
     // error; 一个缩进必须用2个空格替代, switch语句里面的case 2个空格
     indent: [2, 2, { SwitchCase: 2 }],
     // error; 对象字面量中冒号前面禁止有空格，后面必须有空格
-    'key-spacing': [
-      2,
-      { beforeColon: false, afterColon: true, mode: 'strict' },
-    ],
+    'key-spacing': [2, { beforeColon: false, afterColon: true, mode: 'strict' }],
     // error; 关键字前后必须要加上空格
     'keyword-spacing': [2, { before: true, after: true }],
     // off; 不限制注释位置
@@ -252,10 +250,7 @@ module.exports = {
     // error; 换行符
     // 'linebreak-style': [2, 'windows'],
     // warn; 注释前有一空行
-    'lines-around-comment': [
-      1,
-      { beforeBlockComment: true, beforeLineComment: true },
-    ],
+    'lines-around-comment': [1, { beforeBlockComment: true, beforeLineComment: true }],
     // error; 强制可嵌套的块的最大深度
     'max-depth': [2, { max: 4 }],
     // warn; 单行最多允许160个字符, 对包含url的行不进行此限制
@@ -360,16 +355,9 @@ module.exports = {
     // warn; 推荐使用箭头函数作为回调
     'prefer-arrow-callback': [1, { allowNamedFunctions: true }],
     // error; 使用const
-    'prefer-const': [
-      2,
-      { destructuring: 'any', ignoreReadBeforeAssign: false },
-    ],
+    'prefer-const': [2, { destructuring: 'any', ignoreReadBeforeAssign: false }],
     // warn; 推荐结构赋值
-    'prefer-destructuring': [
-      1,
-      { array: true, object: true },
-      { enforceForRenamedProperties: false },
-    ],
+    'prefer-destructuring': [1, { array: true, object: true }, { enforceForRenamedProperties: false }],
     // warn; 推荐rest运算符
     'prefer-rest-params': 1,
     // warn; 推荐扩展运算符

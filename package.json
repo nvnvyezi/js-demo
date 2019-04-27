@@ -35,9 +35,10 @@
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
-    "eslint-config-alloy": "^1.4.2",
+    "eslint-config-prettier": "^4.2.0",
     "eslint-import-resolver-webpack": "^0.11.1",
     "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.6.0",
     "eslint-plugin-typescript": "^0.14.0",
@@ -103,6 +104,7 @@
   ],
   "prettier": {
     "semi": false,
+    "tabWidth": 2,
     "singleQuote": true,
     "trailingComma": "es5"
   },

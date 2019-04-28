@@ -1,10 +1,14 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 
-class App extends React.Component {
-  render() {
-    return <div>ss</div>
-  }
+import TrailingQueue from './rxjs-hooks/trailing-queue'
+
+function App() {
+  return (
+    <div>
+      <TrailingQueue />
+    </div>
+  )
 }
 
 ReactDom.render(<App />, document.getElementById('app'))

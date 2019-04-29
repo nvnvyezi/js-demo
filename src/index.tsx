@@ -1,14 +1,25 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 
+/* rxjs-hooks */
 // import TrailingQueue from './rxjs-hooks/trailing-queue'
-import Drag from './rxjs-hooks/drag'
+// import Drag from './rxjs-hooks/drag'
+
+/* layout */
+import One from './layout/one'
 
 function App() {
   return (
     <div>
-      <Drag />
+      {/* <Drag /> */}
       {/* <TrailingQueue /> */}
+      <One />
+      <style global jsx>{`
+        * {
+          margin: 0;
+          padding: 0;
+        }
+      `}</style>
     </div>
   )
 }

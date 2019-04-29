@@ -1,12 +1,14 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 
-import TrailingQueue from './rxjs-hooks/trailing-queue'
+// import TrailingQueue from './rxjs-hooks/trailing-queue'
+import Drag from './rxjs-hooks/drag'
 
 function App() {
   return (
     <div>
-      <TrailingQueue />
+      <Drag />
+      {/* <TrailingQueue /> */}
     </div>
   )
 }

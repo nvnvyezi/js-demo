@@ -6,14 +6,16 @@ import ReactDom from 'react-dom'
 // import Drag from './rxjs-hooks/drag'
 
 /* layout */
-import One from './layout/one'
+// import One from './layout/one'
+import Two from './layout/two'
 
 function App() {
   return (
     <div>
       {/* <Drag /> */}
       {/* <TrailingQueue /> */}
-      <One />
+      {/* <One /> */}
+      <Two />
       <style global jsx>{`
         * {
           margin: 0;

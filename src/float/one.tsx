@@ -86,8 +86,7 @@ export default function One() {
           div {
             width: 200px;
             height: 200px;
-            // float: left;
-            display: float-root;
+            float: left;
             border: 1px solid green;
           }
           section {
@@ -96,6 +95,7 @@ export default function One() {
             // float: left;
             // position: absolute;
             // display: flex;
+            display: flow-root;
           }
         `}</style>
       </section>

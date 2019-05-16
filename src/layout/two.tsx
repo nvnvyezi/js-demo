@@ -139,6 +139,29 @@ export default function Two() {
     )
   }
 
+  /* ::after */
+  function seven() {
+    return (
+      <section>
+        seven
+        <style jsx>{`
+          section {
+            width: 400px;
+            height: 400px;
+            text-align: center;
+            border: 1px solid red;
+          }
+          section::after {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+          }
+        `}</style>
+      </section>
+    )
+  }
+
   return (
     <>
       {flex()}
@@ -147,6 +170,7 @@ export default function Two() {
       {four()}
       {five()}
       {six()}
+      {seven()}
     </>
   )
 }

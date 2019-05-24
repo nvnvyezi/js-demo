@@ -7,7 +7,8 @@ import ReactDom from 'react-dom'
 
 /* layout */
 // import One from './layout/one'
-import Two from './layout/two'
+// import Two from './layout/two'
+import Three from './layout/three'
 
 /* float */
 // import One from './float/one'
@@ -18,7 +19,8 @@ function App() {
       {/* <Drag /> */}
       {/* <TrailingQueue /> */}
       {/* <One /> */}
-      <Two />
+      {/* <Two /> */}
+      <Three />
       <style global jsx>{`
         * {
           margin: 0;
